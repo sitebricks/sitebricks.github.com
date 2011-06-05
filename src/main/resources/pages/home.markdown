@@ -25,8 +25,8 @@ All such errors are picked up early and reported at once in a format similar to 
 ### Next steps ###
 
   * [Get Started](#get-started)
-  * [5-minute tutorial](#5mintutorial)
-  * [RESTful Web services](#restful-webservices)
+  * [5-minute Tutorial](#5mintutorial)
+  * [RESTful Web Services](#restful-webservices)
 
 * * *
 
