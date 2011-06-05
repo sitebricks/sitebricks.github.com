@@ -2,8 +2,6 @@
 
 # Web Client
 
-### Getting a web page
-
 Sitebricks provides a really simple and effective API for writing HTTP clients in Java. Here is an
  example of fetching the Google home page:
 
@@ -20,11 +18,11 @@ To add this library to your Maven project, add the following dependency:
 
     <dependency>
       <groupId>com.google.sitebricks</groupId>
-      <artifactId>sitebricks</artifactId>
+      <artifactId>sitebricks-client</artifactId>
       <version>0.8.6-SNAPSHOT</version>
     </dependency>
 
-### More on fetching resources
+### Fetching resources
 
 Sitebricks Client supports the common set of HTTP methods. To send a post, use the following code:
 
@@ -37,7 +35,8 @@ Here I've posted a string containing `q=sitebricks` to the Google search page. U
  transports you can post other kinds of data (like JSON or XML) marshalled from simple Java objects.
  Reading the response back is similarly trivial:
 
-     WebResponse response = web.clientOf("http://api.twitter.com/version/statuses/public_timeline.json")
+     String url = "http://api.twitter.com/version/statuses/public_timeline.json";
+     WebResponse response = web.clientOf(url)
          .transports(String.class)
          .over(Text.class)
          .get();
