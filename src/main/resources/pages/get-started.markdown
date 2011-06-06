@@ -1,11 +1,9 @@
 <meta noindex>
 
 # Getting Started
-
-### Using Maven ##
-
 Sitebricks is available through Maven and releases are published to Central fairly often.
 
+### Using Maven
 You can add a dependency on Sitebricks in your Maven project.
 
     <dependency>
@@ -18,8 +16,7 @@ You can add a dependency on Sitebricks in your Maven project.
 At the time of writing, *0.8.5* is the most recent release version. *0.8.6-SNAPSHOT* is the current
 development version. If you want the features in it, you should build from source instead.
 
-### Building from source ##
-
+### Building from source
 To build from source you will need Maven 2.2.1 and git installed.
 
 First check out the sources from Github:
@@ -42,8 +39,7 @@ If everything is successful, you should have a copy of Sitebricks snapshot jars 
 
 If you have no idea how to create a Maven `pom.xml`, check out the [Maven Guide](#maven).
 
-### What next? ##
-
+### What next?
 You will place your compiled classes inside the WEB-INF/ directory in another dir called classes. You may place html templates side by side with the classes OR in the root (where `Example.html` resides) of the webapp as you like.
 
 We'll take the following steps to write a web application in Sitebricks:
@@ -51,8 +47,7 @@ We'll take the following steps to write a web application in Sitebricks:
   * Create a page object in `Example.java` to back an HTML template called `Example.html`
   * Customize the page to give it some dynamic behavior
 
-### Configuring Sitebricks ##
-
+### Configuring Sitebricks
 First let's create and configure our Guice injector. This is done via a `ServletContextListener` that runs once right after the webapp is deployed. Let's call this `MyGuiceCreator` and place it in the `org.example.web` package:
 
 
@@ -105,8 +100,7 @@ Now register this and `GuiceFilter` in your web.xml. It should look as follows:
     </listener>
 
 
-### My First Web Page ##
-
+### My First Web Page
 Now let's create class `Example` that we just talked about:
 
 
@@ -137,7 +131,7 @@ This is a fairly simple template that renders some text inside a `<p>` (paragrap
 
 The other interesting part about this template is a _brick annotation_, named `@ShowIf`. This tells Sitebricks to convert the `<p>` tag into a brick with some dynamic behavior (in this case, shown if an expression evaluates to _true_).  The expression passed to `@ShowIf(true)` is always true (!), so the `<p>` tag and its contents are always rendered.
 
-### Adding Some Behavior ##
+### Adding Some Behavior
 
 Let's make this example a bit more interesting. First, let's make `@ShowIf` take a boolean variable read from the page object:
 
@@ -162,8 +156,7 @@ _Note: getters for each field are needed if reading them from the template_ (Alt
 
 Now, the page still looks the same but the behavior is more dynamic.
 
-### Even more behavior ;) ##
-
+### Even more behavior ;)
 Now let's make this user-controllable by placing a link on the page:
 
     <a href="?appear=${!appear}">show/hide</a>
