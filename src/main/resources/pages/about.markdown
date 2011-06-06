@@ -25,3 +25,9 @@ A sincere word of thanks to all our great contributors. In no particular order:
   * Shawn O'Connor - HTML parser and template generator (using JSoup)
   * Joseph Ottinger - Initial Maven project setup
   * Jared Rodriguez - Sitebricks conversion API
+
+And special mention thanks to:
+
+  * Mike Brock - for MVEL support requests
+  * Bob Lee - for Guice, and giving me the idea for type-safe templating in Sitebricks
+  * JAX-RS expert group - for incorporating many of Sitebricks' ideas into the spec
