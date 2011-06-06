@@ -1,6 +1,8 @@
 <meta noindex>
 
-# The Problem
+# Page Chaining
+
+### The Problem
 
 This is a common problem, where some state reached in one page, needs to be sent to the next page that the user is being redirected to. For example, in page 1 you gather some form data, and need to send that form data to page 2.
 
@@ -14,7 +16,7 @@ Page 1 returns a redirect to `/page2/?message=validation+failed`, and page2 can 
 
 So what we need is a way to do this, per-user, on the server-side. And something that is not as heavyweight as going to a persistent datastore.
 
-## Page Chaining
+### The Solution
 
 Page chaining is Sitebricks's idiomatic support for the post-and-redirect design pattern. Of course, you don't have to use it with the POST method, alone. Let's say PizzaPage and OrderPage are two pages in a workflow:
 
@@ -53,11 +55,11 @@ The `OrderPage`, when displayed to the user on redirect, will contain the toppin
 
 The next time this same workflow is encountered (or if done so by another user), Sitebricks is smart enough not to use the chained value.
 
-## Other Features
+### Other Features
 
 There is no requirement that the chained page needs to be created by Guice. It may or may not be. You can even return a subclass of the target page if that is useful to you (for example, an anonymous inner class).
 
-## Limitations
+### Limitations
 
 This is a simple enough API, but there are some caveats to keep in mind:
   * You can only chain to pages that are mapped to a static URI, this is because Sitebricks does not know how to direct users to pages with a dynamic URI.

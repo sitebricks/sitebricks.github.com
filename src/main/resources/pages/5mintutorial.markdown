@@ -4,7 +4,7 @@
 
 Get a feel for Sitebricks Sitebricks if you have 5 minutes to spare!
 
-## Responding to HTTP events ##
+### Responding to HTTP events ##
 
 When a request comes in, you generally want to do some preparing in code before rendering a response. For example, you may retrieve information stored in a database. If we were trying to display a list of movies, this is exactly what we would want:
   
@@ -31,7 +31,7 @@ This template simply renders from a collection `movies` to an unordered html lis
 
 Method annotation `@Get` tells Sitebricks to use this method as an event handler for all HTTP GET requests to the `/movies` page. The method `get()` is called prior to any rendering being done, so you have the opportunity to prepare the list of of movies.
 
-## Mapping to pretty URLs ##
+### Mapping to pretty URLs ##
 
 Sometimes called "restful" URLs, the practice of constructing a resource name with everything as a path item is increasingly very popular. For example, rather than `/app/movieList.html?name=Godfather` you would use `/movie/Godfather` and specify the content type (HTML) in subsumed headers.
 
@@ -75,7 +75,7 @@ And this would match any of:
   * `/music/pearljam/songs/even-flow`  
   * `/music/muse/songs/newborn`
 
-## Responding to Form POSTs ##
+### Responding to Form POSTs ##
 
 Reading resources (like movies or song details) over HTTP typically happens with the GET request. The converse of GET, writing resources, happens using the POST request. This is typically triggered when an HTML form is filled out and _submitted_. Let's say we wanted to do just that with a blog entry:
 
