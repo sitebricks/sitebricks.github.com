@@ -1,14 +1,14 @@
 <meta noindex>
 
-#summary Building web services over http (i.e. web resources without templates).
+# RESTful Web Services
 
-# Web Service
+This guides shows you how to build web services over HTTP.
 
 If you followed the getting started guide, then you know how to map pages to URLs and if you did the five minute tutorial, you know how to create Java methods that handle incoming HTTP requests like GET and POST. For standard HTML use cases this is plenty. Sitebricks also allows you to serve arbitrary types of content via the same mechanism. These may be images, json objects, XML or just about anything else you might want to expose via an API.
 
-This kind of resource is typically called a Restful web service.
+If this is served or constructed dynamically, this kind of resource is called a web service.
 
-## No templates
+### No templates
 
 The syntax for configuring web services is very similar to web pages, the exception being that you do not have an accompanying HTML template:
 
@@ -30,7 +30,7 @@ Note the use of the `@Service` annotation in place of `@Show`. This tells Sitebr
 
 This is also fairly straightforward: you return a `Reply<String>` object with the string `"hello there!"`. By default Sitebricks is set up to serve this as a `text/plain` content type.
 
-## Replies
+### Replies
 
 The `Reply<E>` object is typed with the class of the _entity_ you want to respond with. In HTTP terms, an entity is an instance of a resource that you want to serve. For example, a shopping cart or a product item. The reply then serves as a wrapper API that generates the relevant HTTP response with the provided entity.
 
@@ -49,7 +49,7 @@ In this case, the `as()` rule is given a class that implements the `Transport` i
   * `Text.class` - Calls toString() on the entity and writes a UTF-8 String
 
 
-## Response Headers
+### Response Headers
 
 Replies also allow you to set commonly used headers (such as content type) with a simple API step:
 
@@ -75,7 +75,7 @@ Of course, you can also specify exactly what headers you want directly, with a m
                   .headers(headers);
     }
 
-## Statuses
+### Statuses
 
 Replies allow you to set the status of a response too. If you don't set one, the status code for `OK` (200) is set by default. Otherwise you can use one of the convenience methods to both set a status and perform an action.
 
@@ -102,3 +102,29 @@ This shows resource not found error (404):
       return Reply.with("some message")
                   .status(900);
     }
+
+
+### Yes templates!
+
+If you wish, you can render templates from these web services too. Here is the syntax:
+
+    @At("/person") @Service
+    public class PersonService {
+
+      @Get
+      Reply<Person> hello() {
+        return Reply.with(new Person(..))
+                    .template(Person.class);
+      }
+    }
+
+Here, the class `Person` is used as the template indicator. Sitebricks expects that your data model
+object to be backed by a template:
+
+    @Show("PersonTemplate.html")
+    class Person {
+      ...
+    }
+
+This way, we cleanly separate model/view and control logic in our web services, in a concise and
+type-safe manner.

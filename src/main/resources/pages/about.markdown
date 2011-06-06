@@ -13,7 +13,7 @@ Templating, Mail, HTTP Clients, and more. Sitebricks is maintained by an active 
 If you have questions, send a message to the friendly folk on our [mailing list](http://groups.google.com/group/google-sitebricks).
 Sitebricks was created by [Dhanji R. Prasanna](http://twitter.com/dhanji), while at Google.
 
-## Contributors
+### Contributors
 
 A sincere word of thanks to all our great contributors. In no particular order:
 
