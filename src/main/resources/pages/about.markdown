@@ -24,3 +24,4 @@ A sincere word of thanks to all our great contributors. In no particular order:
   * Fred Faber - Sitebricks Stats module
   * Shawn O'Connor - HTML parser and template generator (using JSoup)
   * Joseph Ottinger - Initial Maven project setup
+  * Jared Rodriguez - Sitebricks conversion API
