@@ -21,12 +21,12 @@ To build from source you will need Maven 2.2.1 and git installed.
 
 First check out the sources from Github:
 
-git clone https://github.com/dhanji/sitebricks.git sitebricks
+    git clone https://github.com/dhanji/sitebricks.git sitebricks
 
 Now build Sitebricks and install it in your local Maven repository.
 
-cd sitebricks
-mvn install
+    cd sitebricks
+    mvn install
 
 If everything is successful, you should have a copy of Sitebricks snapshot jars in your local
  repository. Remember to use the snapshot version in your pom.xml:
