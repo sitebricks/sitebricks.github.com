@@ -12,3 +12,15 @@ Templating, Mail, HTTP Clients, and more. Sitebricks is maintained by an active 
 
 If you have questions, send a message to the friendly folk on our [mailing list](http://groups.google.com/group/google-sitebricks).
 Sitebricks was created by [Dhanji R. Prasanna](http://twitter.com/dhanji), while at Google.
+
+## Contributors
+
+A sincere word of thanks to all our great contributors. In no particular order:
+
+  * Jason van Zyl - Releases Sitebricks to Maven Central and provides many contributions
+  * Jean-Francois Arcand - Sitebricks Client/AHC and RESTful Webservices SPI features
+  * Bradley Dwyer - Page redirects, PUT/DELETE handling from browsers and much more
+  * John D Patterson - Improvements to Bricks support, Sitebricks conversion API
+  * Fred Faber - Sitebricks Stats module
+  * Shawn O'Connor - HTML parser and template generator (using JSoup)
+  * Joseph Ottinger - Initial Maven project setup
