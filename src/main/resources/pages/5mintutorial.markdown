@@ -8,12 +8,12 @@ Get a feel for Sitebricks Sitebricks if you have 5 minutes to spare!
 
 When a request comes in, you generally want to do some preparing in code before rendering a response. For example, you may retrieve information stored in a database. If we were trying to display a list of movies, this is exactly what we would want:
   
-  <body>
-    <ul>
-       @Repeat(items=movies, var="movie")
-       <li>${movie.name}</li>
-    </ul>
-  </body>
+    <body>
+      <ul>
+         @Repeat(items=movies, var="movie")
+         <li>${movie.name}</li>
+      </ul>
+    </body>
 
 This template simply renders from a collection `movies` to an unordered html list (`<ul>`). On any HTTP GET (most requests are these), let's say you want to load the list of movies from a data store:
 
