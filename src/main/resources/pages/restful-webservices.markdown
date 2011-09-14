@@ -21,7 +21,7 @@ The syntax for configuring web services is very similar to web pages, the except
       }
     }
 
-Note the use of the `@Service` annotation in place of `@Show`. This tells Sitebricks not to look for a corresponding template. The other difference is that we are now required to implement an event handler for HTTP GET requests:
+Note the use of the `@Service` annotation. This tells Sitebricks not to look for a corresponding template. The other difference is that we are now required to implement an event handler for HTTP GET requests:
 
     @Get
     Reply<String> hello() {
