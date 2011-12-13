@@ -166,19 +166,13 @@ Now let's make this user-controllable by placing a link on the page:
 
     ...
 
-This requires exposing a setter for `appear` in `Example` so that Sitebricks can set the value from the get parameter.
+The link *show/hide* causes a browser to request the same page but with a parameter `appear`. By placing the expression `${!appear}` next to it, we toggle the boolean value of appear in the link. Now each time the page is requested, Sitebricks will bind the value in the query string to the field `appear` in `Example`. This requires that either `appear` is public or that a setter is exposed.
 
     @At("/")
     public class Example {
-      private boolean appear = true;
-      private String message = "Hello";
-
-      public boolean getAppear() { return appear; }
-      public String getMessage() { return message; }
-      public void getMessage(String message) { this.message = message; }
+      // ... details elided
+      public void setAppear(boolean appear) { this.appear = appear; }
     }
-
-The link *show/hide* causes a browser to request the same page but with a parameter `appear`. By placing the expression `${!appear}` next to it, we toggle the boolean value of appear in the link. Now each time the page is requested, Sitebricks will bind the value in the query string to the field `appear` in `Example`.
 
 Now run your app and try clicking the link.
 
