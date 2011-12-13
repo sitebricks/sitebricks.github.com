@@ -149,7 +149,7 @@ And add it as a field to class `Example`:
       private String message = "Hello";
 
       public boolean getAppear() { return appear; }
-      public boolean getMessage() { return message; }
+      public String getMessage() { return message; }
     }
 
 _Note: getters for each field are needed if reading them from the template_ (Alternatively, you could make them public).
@@ -166,8 +166,19 @@ Now let's make this user-controllable by placing a link on the page:
 
     ...
 
+This requires exposing a setter for `appear` in `Example` so that Sitebricks can set the value from the get parameter.
 
-The link *show/hide* causes a browser to request the same page but with a parameter `appear`. By placing the expression `${!appear}` next to it, we toggle the boolean value of appear in the link. Now each time the page is requested, Sitebricks will bind the value in the query string to the field `appear` in Example.
+    @At("/")
+    public class Example {
+      private boolean appear = true;
+      private String message = "Hello";
+
+      public boolean getAppear() { return appear; }
+      public String getMessage() { return message; }
+      public void getMessage(String message) { this.message = message; }
+    }
+
+The link *show/hide* causes a browser to request the same page but with a parameter `appear`. By placing the expression `${!appear}` next to it, we toggle the boolean value of appear in the link. Now each time the page is requested, Sitebricks will bind the value in the query string to the field `appear` in `Example`.
 
 Now run your app and try clicking the link.
 
