@@ -48,6 +48,7 @@ In this case, the `as()` rule is given a class that implements the `Transport` i
   * `Json.class` - Jackson based Json transport
   * `Text.class` - Calls toString() on the entity and writes a UTF-8 String
 
+See also [Request/Reply API](#requestandreply)
 
 ### Response Headers
 
@@ -128,3 +129,5 @@ object to be backed by a template:
 
 This way, we cleanly separate model/view and control logic in our web services, in a concise and
 type-safe manner.
+
+See also [Template API](#template)
