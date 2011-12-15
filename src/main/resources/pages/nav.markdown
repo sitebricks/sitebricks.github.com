@@ -9,3 +9,4 @@
   * [Page Chaining](#page-chaining)
   * [Web/HTTP Client](#webclient)
   * [Maven Usage](#maven)
+  * [Localization](#localization)
