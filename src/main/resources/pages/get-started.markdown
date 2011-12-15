@@ -1,9 +1,11 @@
 <meta noindex>
 
 # Getting Started
+
 Sitebricks is available through Maven and releases are published to Central fairly often.
 
 ### Using Maven
+
 You can add a dependency on Sitebricks in your Maven project.
 
     <dependency>
@@ -16,7 +18,10 @@ You can add a dependency on Sitebricks in your Maven project.
 At the time of writing, *0.8.5* is the most recent release version. *0.8.6-SNAPSHOT* is the current
 development version. If you want the features in it, you should build from source instead.
 
+See [Maven Guide](#maven) for more information.
+
 ### Building from source
+
 To build from source you will need at least Maven 2.2.1 (3.0.3 also works) and git installed.
 
 First check out the sources from Github:
@@ -40,6 +45,7 @@ If everything is successful, you should have a copy of Sitebricks snapshot jars 
 If you have no idea how to create a Maven `pom.xml`, check out the [Maven Guide](#maven).
 
 ### What next?
+
 You will place your compiled classes inside the WEB-INF/ directory in another dir called classes. You may place html templates side by side with the classes OR in the root (where `Example.html` resides) of the webapp as you like.
 
 We'll take the following steps to write a web application in Sitebricks:
@@ -49,6 +55,7 @@ We'll take the following steps to write a web application in Sitebricks:
 * Customize the page to give it some dynamic behavior
 
 ### Configuring Sitebricks
+
 First let's create and configure our Guice injector. This is done via a `ServletContextListener` that runs once right after the webapp is deployed. Let's call this `MyGuiceCreator` and place it in the `org.example.web` package:
 
 
@@ -62,10 +69,11 @@ First let's create and configure our Guice injector. This is done via a `Servlet
         }
     }
 
-
 This tells Guice to route all incoming requests to Sitebricks (if Sitebricks cannot handle them,
  they will be handed back to the normal servlet pipeline as per web.xml). This also lets us take
  advantage of Guice's powerful web-scopes functionality.
+ 
+See [Configuration](#config) for more configuration examples.
 
 OK, so far so good. Now we need to tell Sitebricks what packages to scan for pages. This is done
 by adding another step to `AppConfig`:
@@ -102,6 +110,7 @@ Now register this and `GuiceFilter` in your web.xml. It should look as follows:
 
 
 ### My First Web Page
+
 Now let's create class `Example` that we just talked about:
 
 
@@ -115,7 +124,7 @@ Now let's create class `Example` that we just talked about:
 
 The `@At` annotation tells Sitebricks to expose this web page at url `"/"`. So if you deploy to localhost at port 8080 and visit URL `http://localhost:8080/` in a browser, page `Example` will appear.
 
-_Note: This annotation is detected by scanning packages. If you don't like this, you can use the alternate [ModularConfig modular configuration approach]_
+_Note: This annotation is detected by scanning packages. If you don't like this, you can use the alternate [Modular Configuration](#config) approach_
 
 The HTML template for Example was already sitting the zip archive root. This looked as follows:
 
@@ -158,6 +167,7 @@ _Note: getters for each field are needed if reading them from the template_ (Alt
 Now, the page still looks the same but the behavior is more dynamic.
 
 ### Even more behavior ;)
+
 Now let's make this user-controllable by placing a link on the page:
 
     <a href="?appear=${!appear}">show/hide</a>
