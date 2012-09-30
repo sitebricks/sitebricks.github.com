@@ -20,8 +20,8 @@ So what we need is a way to do this, per-user, on the server-side. And something
 
 Page chaining is Sitebricks's idiomatic support for the post-and-redirect design pattern. Of course, you don't have to use it with the POST method, alone. Let's say PizzaPage and OrderPage are two pages in a workflow:
 
-  # `PizzaPage` - Choose a topping
-  # `OrderPage` - Place an order for pizza
+  1. `PizzaPage` - Choose a topping
+  2. `OrderPage` - Place an order for pizza
 
 In the first page, the user chooses their toppings:
 
@@ -62,6 +62,23 @@ There is no requirement that the chained page needs to be created by Guice. It m
 ### Limitations
 
 This is a simple enough API, but there are some caveats to keep in mind:
+
   * You can only chain to pages that are mapped to a static URI, this is because Sitebricks does not know how to direct users to pages with a dynamic URI.
   * If you want to return redirects to more than one page based on a condition, then you can return `Object` (or the nearest supertype of all those pages). However, the static analyzer may warn that you're not redirecting to a valid page.
-  * Page chaining currently uses the Http session to store pages between requests. This may be problematic for session clustering, and may increase memory usage when not serving requests.
+  * Page chaining requires that Sitebricks be configured with a working `FlashCache` by modifying your `AppConfig`:
+
+        @Override
+        public Injector getInjector() {
+            return Guice.createInjector(new SitebricksModule() {
+                @Override
+                protected void configureSitebricks() {
+                    // ...
+                    bind(FlashCache.class).to(HttpSessionFlashCache.class)
+                        .in(Singleton.class);
+                    // ...
+                }
+            });
+        }
+
+    Here we are configuring Sitebricks to store pages between requests on the Http Session. This may be problematic for session clustering, and may increase memory usage when not serving requests.
+
