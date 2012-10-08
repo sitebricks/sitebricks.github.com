@@ -14,19 +14,31 @@ Differences between the two patterns are described below.
 Declaration of a basic page
 
     @At("/movies")
-	@Show(MoviesPage.class)
+	@Show
 	public class MoviesPage {
         ...
 	}
 
-Declaration of a service
+This will look for a template named MoviesPage.html (or .xml or .mvel, etc., depending on the templating engine in use). If you want to customize the name of the template, you can specify it in the `@Show` annotation:
+
+    @At("/movies")
+    @Show("movies.html")
+    public class MoviesPage {
+          ...
+    }
+
+
+Declaration of a web service (or resource):
 	
 	@At("/actors")
-	@Service(ActorsPage.class)
-	public class ActorsPage {
+	@Service
+	public class ActorsService {
         ...
 	}
 	
+
+There is no template backing this Sitebricks page, it is sometimes referred to as a _headless_ web service.
+
 Declaration of brick
 
 	@EmbedAs("Soundtrack")
@@ -34,7 +46,9 @@ Declaration of brick
 		...
 	}
 	
-Finally scan the root package that contains all your classes
+A brick is any page that can be embedded inside another page's template by specifying it using `@<name_of_brick>`. So for example, to embed the above you would use `@Soundtrack` on any XML/HTML element in your container template. Note that this only works with Sitebricks templates.
+
+Finally to auto-scan the root package that contains all your classes:
 	
 	public class MyAppConfig extends SitebricksModule {
         @Override
@@ -50,7 +64,7 @@ As an alternative to package scanning and the use annotations, Sitebricks provid
   * Capture all page mappings in one place
   * Avoid package scanning because it loads classes that are not all pages
   * Avoid package scanning because it is slow
-  * Avoid package scanning because it is unfeasible (for example, in Google Appengine)
+  * Avoid package scanning because it is unfeasible (for example, due to a security manager or in Google Appengine)
   * Package a Sitebricks library for distribution as a drop-in module
 
 Declaration of a basic page, a service and a brick.
