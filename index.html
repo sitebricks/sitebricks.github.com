@@ -1,51 +1,52 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
-<head>
-  <title>Sitebricks :: A Web platform</title>
-  <link rel="stylesheet" href="main.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.hashchange-1.0.0.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-</head>
-<body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="http://github.com/dhanji/sitebricks">Github</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contribute">Contribute</a></li>
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
-  <form>
-    <input class="searchbox" type="text" value="Search"/>
-  </form>
-  <h1>sitebricks<span>.org</span></h1>
-  <nav id="controls">
-  </nav>
-  <div class="groove"></div>
-</header>
-<nav id="left">
-  <ul>
-    <li id="top" class="back"><a href="#">&uarr; Home</a></li>
-    <li><a class="wikilink" href="#" name="${node.name}"></a></li>
-  </ul>
-</nav>
-<section id="main">
-  <article>
-    <h2>Sitebricks Async</h2>
-    <p>
-    Back in our August Food Awards issue.
-    </p>
-  <pre>
-ChannelFuture writeFuture;
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sitebricks by sitebricks</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Sitebricks</h1>
+        <p>Instant web services stack</p>
+
+
+        <p class="view"><a href="https://github.com/sitebricks">View My GitHub Profile</a></p>
+
+      </header>
+      <section>
+        <h3>
+<a name="developing-with-sitebricks" class="anchor" href="#developing-with-sitebricks"><span class="octicon octicon-link"></span></a>Developing with Sitebricks</h3>
+
+<p>Sitebricks is a full stack for building Java web services.</p>
+
+<p>It assembles together various well-known libraries for things like dependency injection, servlets, configuration in a simple framework. Essentially, it removes the common headache of figuring out how to wire together an application from scratch while also providing basic design patterns all brought together under a performant, elegant RESTful web services library.</p>
+
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>At its core, a sitebricks application is:</p>
+
+<pre><code>    &lt;dependency&gt;
+      &lt;groupId&gt;com.google.guava&lt;/groupId&gt;
+      &lt;artifactId&gt;guava&lt;/artifactId&gt;
+      &lt;version&gt;r09&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
     
-if (ch.getPipeline().get(SslHandler.class) != null) {
-   writeFuture = ch.write(new ChunkedFile(raf, 0, <b>fileLength</b>, 8192));
-} else {</pre>
-    <p>
-    </p>
-  </article>
-</section>
-</body>
+  </body>
 </html>
